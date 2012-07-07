@@ -9,52 +9,52 @@ describe PagesController do
 
   describe "GET 'home'" do
     it "should be successful" do
-      get 'home'
+       root :to => 'pages#home'
       response.should be_success
     end
 
     it "should have the right title" do
-      get 'home'
+      root :to => 'pages#home'
       response.should have_selector("title",
-                                    :content => "Ruby on Rails Tutorial Sample App | Home")
+                                    :content => @base_title + " | Home")
     end
   end
 
   describe "GET 'contact'" do
     it "should be successful" do
-      get 'contact'
+      match '/contact', :to => 'pages#contact'
       response.should be_success
     end
 
     it "should have the right title" do
-      get 'contact'
+      match '/contact', :to => 'pages#contact'
       response.should have_selector("title",
-                        :content => "Ruby on Rails Tutorial Sample App | Contact")
+                        :content => @base_title + " | Contact")
     end
   end
 
   describe "GET 'about'" do
     it "should be successful" do
-      get 'about'
+      match '/about', :to => 'pages#about'
       response.should be_success
     end
 
     it "should have the right title" do
-      get 'about'
+      match '/about', :to => 'pages#about'
       response.should have_selector("title",
-                        :content =>  "Ruby on Rails Tutorial Sample App | About")
+                        :content =>  @base_title + " | About")
     end
   end
   
    describe "GET 'help'" do
     it "should be successful" do
-      get 'help'
+      match '/help', :to => 'pages#help'
       response.should be_success
     end
     it "should have the right title" do
-      get 'about'
+      match '/help', :to => 'pages#help'
       response.should have_selector("title",
-                        :content => "Ruby on Rails Tutorial Sample App | About")
+                        :content => "Ruby on Rails Tutorial Sample App | Help")
     end
    end
   
